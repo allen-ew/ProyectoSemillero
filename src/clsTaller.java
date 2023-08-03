@@ -1,4 +1,6 @@
 import javax.sound.midi.Soundbank;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -6,9 +8,11 @@ public class clsTaller {
 
     public static Scanner varScanner = new Scanner(System.in);
 
-    /*1.Realiza un programa que solicite al usuario dos números enteros y muestre
-    su suma, resta, multiplicación y división.*/
+
     public static void operacionesBasicas(){
+        /*1.Realiza un programa que solicite al usuario dos números enteros y muestre
+        su suma, resta, multiplicación y división.*/
+
         System.out.println("Digite el primer numero: ");
         float varNumberOne = varScanner.nextFloat();
         System.out.println("Digite el segundo numero: ");
@@ -20,21 +24,20 @@ public class clsTaller {
         System.out.println("Suma: " + vSuma + ", Resta: " + vResta + ", Multiplicacion: " + vMultiplicacion + ", Division: " + vDivision);
 
     }
-
-    /*2. Escribe un programa que pida al usuario un número entero y determine si es
-    par o impar.*/
-
     public static void determinarParidad(){
+        /*2. Escribe un programa que pida al usuario un número entero y determine si es
+        par o impar.*/
+
         System.out.println("Digite el numero: ");
         int varNumerOne = varScanner.nextInt();
         String vResultado = (varNumerOne%2==0)?"El numero es par.":"El numero es impar";
         System.out.println(vResultado);
     }
-
-    /*3. Crea un programa que calcule y muestre el área y el perímetro de un círculo.
-         El usuario debe proporcionar el radio del círculo.
-    */
     public static void operacionesCirculo(){
+        /*3. Crea un programa que calcule y muestre el área y el perímetro de un círculo.
+         El usuario debe proporcionar el radio del círculo.
+        */
+
         System.out.println("Digite el radio del circulo: ");
         float varRadioCirculo = varScanner.nextInt();
         double varPerimetro = 2*Math.PI*varRadioCirculo;
@@ -43,22 +46,21 @@ public class clsTaller {
         System.out.println("El perimetro del circulo es: " + varPerimetro);
         System.out.println("El area del circulo es: " + varArea);
     }
-
-    /*4.Pide al usuario su edad y muestra un mensaje indicando si es mayor de edad
-        o menor de edad.
-    */
-
     public static void siEsMayorEdad(){
+        /*4.Pide al usuario su edad y muestra un mensaje indicando si es mayor de edad
+        o menor de edad.
+        */
+
         System.out.println("Digite la edad: ");
         int varEdad = varScanner.nextInt();
         String varResultado = (varEdad>=18)?"Es mayor de edad.":"Es menor de edad.";
         System.out.println(varResultado);
     }
-
-    /*5. Realiza un programa que solicite al usuario dos números enteros y determine
-         cuál es el mayor de ellos.
-    */
     public static void numeroMayor(){
+        /*5. Realiza un programa que solicite al usuario dos números enteros y determine
+         cuál es el mayor de ellos.
+        */
+
         System.out.println("Digite el primer numero: ");
         float varNumberOne = varScanner.nextFloat();
         System.out.println("Digite el segundo numero: ");
@@ -66,11 +68,10 @@ public class clsTaller {
         String vResultado = (varNumberOne>varNumberTwo)?String.valueOf(varNumberOne)+" Es mayor.":String.valueOf(varNumberTwo)+" Es mayor.";
         System.out.println(vResultado);
     }
-
-    /*6. Escribe un programa que pida al usuario un número y verifique si es positivo,
+    public static void siEsPositivo(){
+        /*6. Escribe un programa que pida al usuario un número y verifique si es positivo,
          negativo o cero */
 
-    public static void siEsPositivo(){
         System.out.println("Digite el numero: ");
         float varNumberOne = varScanner.nextFloat();
         if(varNumberOne==0){
@@ -81,11 +82,11 @@ public class clsTaller {
             System.out.println("El numero es negativo.");
         }
     }
-
-    /*7. Crea un programa que pida al usuario un número entero positivo y muestre
-      su tabla de multiplicar hasta el 10.
-    */
     public static void tablaHastaDiez(){
+        /*7. Crea un programa que pida al usuario un número entero positivo y muestre
+        su tabla de multiplicar hasta el 10.
+        */
+
         System.out.println("Digite el numero: ");
         int varNumberOne = varScanner.nextInt();
         for(int i = 1; i<=10;i++){
@@ -93,13 +94,12 @@ public class clsTaller {
             System.out.println(vResultado);
         }
     }
-
-    /*8. Realiza un programa que simule un juego de adivinar un número. El
-    programa debe generar un número aleatorio entre 1 y 100, y el usuario debe
-    adivinarlo. El programa debe indicar si el número ingresado es mayor o
-    menor que el número a adivinar */
-
     public static void adivinarNumero(){
+        /*8. Realiza un programa que simule un juego de adivinar un número. El
+        programa debe generar un número aleatorio entre 1 y 100, y el usuario debe
+        adivinarlo. El programa debe indicar si el número ingresado es mayor o
+        menor que el número a adivinar */
+
         Random random = new Random();
         int varNumero = random.nextInt(100)+1;
         int varNumUsuario = 0;
@@ -113,11 +113,9 @@ public class clsTaller {
         }
         System.out.println("Felicidades, adivinaste el numero!");
     }
-
-    /*9. Escribe un programa que solicite al usuario un número entero positivo y
-         calcule su factorial*/
-
     public static void numeroFactorial(){
+        /*9. Escribe un programa que solicite al usuario un número entero positivo y
+         calcule su factorial*/
         System.out.println("Digite el numero: ");
         int varNumUsuario = varScanner.nextInt();
         int varResultado = functionFactorial(varNumUsuario);
@@ -125,24 +123,28 @@ public class clsTaller {
 
     }
     public static int functionFactorial(int prmNumero){
+        /*9. Escribe un programa que solicite al usuario un número entero positivo y
+         calcule su factorial*/
         if(prmNumero>0){
             return prmNumero * functionFactorial(prmNumero-1);
         }
         return 1;
     }
-
-    /*10. Crea un programa que muestre los primeros 20 números de la
+    public static void serieFibonacci(){
+        /*10. Crea un programa que muestre los primeros 20 números de la
           serie Fibonacci. La serie Fibonacci se forma sumando los dos números
           anteriores para obtener el siguiente número: 0, 1, 1, 2, 3, 5, 8, 13, …
-    */
-
-    public static void serieFibonacci(){
+        */
         int varNumero = 20;
         for(int i = 0; i<varNumero;i++){
             System.out.println(calcularSF(i));
         }
     }
     public static int calcularSF(int prmNumero){
+        /*10. Crea un programa que muestre los primeros 20 números de la
+          serie Fibonacci. La serie Fibonacci se forma sumando los dos números
+          anteriores para obtener el siguiente número: 0, 1, 1, 2, 3, 5, 8, 13, …
+        */
         if(prmNumero == 0 || prmNumero == 1){
             return prmNumero;
         }
@@ -150,11 +152,9 @@ public class clsTaller {
             return calcularSF(prmNumero-1)+calcularSF(prmNumero-2);
         }
     }
-
-    /*11. Escribe un programa que calcule el área de un triángulo utilizando la fórmula
-        de Herón. El usuario debe ingresar las longitudes de los tres lados.*/
-
     public static void formulaHeron(){
+        /*11. Escribe un programa que calcule el área de un triángulo utilizando la fórmula
+        de Herón. El usuario debe ingresar las longitudes de los tres lados.*/
         System.out.println("Digite el primer lado: ");
         double varSideOne = varScanner.nextInt();
         System.out.println("Digite el segundo lado: ");
@@ -166,9 +166,9 @@ public class clsTaller {
         System.out.println("El area del triangulo con los lados : " + varSideOne + ", " + varSideTwo + ", " + varSideThree + " es: " + varArea + " Metros Cuadrados.");
 
     }
-    /*12. Realiza un programa que pida al usuario un número entero y determine si es
-    un número primo o no*/
     public static void siEsPrimo(){
+        /*12. Realiza un programa que pida al usuario un número entero y determine si es
+        un número primo o no*/
         System.out.println("Digite el numero: ");
         int varNumUsuario = varScanner.nextInt();
         int varContador = 0;
@@ -183,9 +183,9 @@ public class clsTaller {
         String varResultado = (varContador==0) ? "El numero es primo." : "El numero no es primo.";
         System.out.println(varResultado);
     }
-    /*13.Pide al usuario un número decimal y muestra su valor redondeado a un
-        número específico de decimales*/
     public static void redondearDecimal(){
+        /*13.Pide al usuario un número decimal y muestra su valor redondeado a un
+        número específico de decimales*/
         System.out.println("Digite el numero: ");
         double varNumUsuario = varScanner.nextDouble();
         System.out.println("Digite la cantidad a redondear: ");
@@ -195,11 +195,11 @@ public class clsTaller {
         double varResultado = Math.round(varNumUsuario*varFactorRedondeo)/varFactorRedondeo;
         System.out.println(varResultado);
     }
-    /*14. Escribe un programa que solicite al usuario un número entero positivo y
+    public static void siEsPerfecto(){
+        /*14. Escribe un programa que solicite al usuario un número entero positivo y
           verifique si es un número perfecto. Un número perfecto es aquel cuya suma
           de sus divisores propios (excluyendo al propio número) es igual al número*/
 
-    public static void siEsPerfecto(){
         //El metodo solo sirve para numeros en el rango del tipo long.
 
         System.out.println("Digite el numero: ");
@@ -213,11 +213,11 @@ public class clsTaller {
         String varResultado = (varSumaDivisores == varNumUsuario)?"El numero es perfecto.":"El numero no es perfecto.";
         System.out.println(varResultado);
     }
-
-    /*15. Crea un programa que pida al usuario un número entero y determine si es un
+    public static void siEsCapicua(){
+        /*15. Crea un programa que pida al usuario un número entero y determine si es un
           número capicúa. Un número capicúa es aquel que se lee igual de izquierda a
           derecha que de derecha a izquierda.*/
-    public static void siEsCapicua(){
+
         System.out.println("Digite el numero: ");
         int varNumUsuario = varScanner.nextInt();
         StringBuilder varSB = new StringBuilder();
@@ -226,14 +226,92 @@ public class clsTaller {
         System.out.println(varResultado);
 
     }
-
-    /*16. Realiza un programa que calcule e imprima la serie de Fibonacci hasta un
-          número dado ingresado por el usuario.*/
     public static void serieFibonacciHasta(){
+        /*16. Realiza un programa que calcule e imprima la serie de Fibonacci hasta un
+          número dado ingresado por el usuario.*/
+
         System.out.println("Digite el numero: ");
         int varNumUsuario = varScanner.nextInt();
         for(int i = 0; i<varNumUsuario;i++){
             System.out.println(calcularSF(i));
         }
     }
+    public static void siEsPrimoRango(){
+         /*17. Pide al usuario dos números enteros y muestra todos los números primos
+         que se encuentran en ese rango.
+        */
+
+        System.out.println("Digite el primer numero: ");
+        int varNumberOne = varScanner.nextInt();
+        System.out.println("Digite el segundo numero: ");
+        int varNumberTwo = varScanner.nextInt();
+        for (int i = varNumberOne; i<=varNumberTwo;i++){
+            if(siEsPrimo(i)){
+                System.out.println("El numero primo es: " + i);
+            }
+        }
+    }
+    private static boolean siEsPrimo(int prmNumero){
+         /*17.Pide al usuario dos números enteros y muestra todos los números primos
+         que se encuentran en ese rango.
+        */
+
+        for (int i = 2; i <= Math.sqrt(prmNumero); i++) {
+            if (prmNumero % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void generarContrasenia(){
+
+        /*18. Crea un programa que genere una contraseña aleatoria de 8 caracteres que
+          contenga letras mayúsculas, letras minúsculas y dígitos. Puedes utilizar la
+          clase Math para generar números aleatorios y la clase String para manipular
+          la contraseña.
+        */
+
+        String varAlphabetic = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String varNumbers = "0123456789";
+        char [] varArrayAlphabetic = varAlphabetic.toCharArray();
+        char [] varArrayNumbers = varNumbers.toCharArray();
+        StringBuilder varSB = new StringBuilder();
+        Random varRandom = new Random();
+
+
+        for(int i = 0; i<4;i++){
+            varSB.append(varArrayAlphabetic[varRandom.nextInt(52)]);
+            varSB.append(varArrayNumbers[varRandom.nextInt(10)]);
+            System.out.println(varSB);
+        }
+        System.out.println("La contraseña es:" + varSB);
+
+    }
+    public static void nombreMayusMinus(){
+        /*19. Escribe un programa que solicite al usuario su nombre y luego lo imprima en
+        mayúsculas y minúsculas
+        */
+        System.out.println("Digite su nombre: ");
+        String varNombre = varScanner.next();
+        System.out.println("Su nombre en minusculas es: " +varNombre.toLowerCase()+ " y en mayusculas es: "+varNombre.toUpperCase());
+
+
+    }
+
+    public static void reverseCadena(){
+        /*20. Realiza un programa que solicite al usuario una cadena y luego invierta su
+        orden*/
+
+        System.out.println("Digite su palabra : ");
+        StringBuilder varCadenaSB = new StringBuilder(varScanner.next());
+        System.out.println(varCadenaSB.reverse());
+
+    }
+    public static void countCadena(){
+        /*21. Pide al usuario una cadena y muestra cuántas veces aparece una letra
+          específica en ella*/
+
+
+    }
+
 }

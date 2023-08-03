@@ -56,16 +56,16 @@ public class Main {
         //clsTaller.serieFibonacciHasta();
 
         //Punto 17:
-        //
+        //clsTaller.siEsPrimoRango();
 
         //Punto 18:
-        //
+        //clsTaller.generarContrasenia();
 
         //Punto 19:
-        //
+        //clsTaller.nombreMayusMinus();
 
         //Punto 20:
-        //
+        clsTaller.reverseCadena();
 
         //Punto 21:
         //
@@ -125,47 +125,4 @@ public class Main {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public static void generarContrasenia(){
-        String alphabetic = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        char [] arrayAlphabetic = alphabetic.toCharArray();
-    }
 }
