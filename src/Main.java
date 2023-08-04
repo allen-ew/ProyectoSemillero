@@ -1,5 +1,4 @@
-import java.util.Random;
-import java.util.Scanner;
+
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
@@ -65,13 +64,13 @@ public class Main {
         //clsTaller.nombreMayusMinus();
 
         //Punto 20:
-        clsTaller.reverseCadena();
+        //clsTaller.reverseCadena();
 
         //Punto 21:
-        //
+        //clsTaller.countCadena();
 
         //Punto 22:
-        //
+        clsTaller.siEsPalindromo();
 
         //Punto 23:
         //

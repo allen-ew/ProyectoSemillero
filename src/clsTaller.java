@@ -1,6 +1,5 @@
-import javax.sound.midi.Soundbank;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -65,7 +64,7 @@ public class clsTaller {
         float varNumberOne = varScanner.nextFloat();
         System.out.println("Digite el segundo numero: ");
         float varNumberTwo = varScanner.nextFloat();
-        String vResultado = (varNumberOne>varNumberTwo)?String.valueOf(varNumberOne)+" Es mayor.":String.valueOf(varNumberTwo)+" Es mayor.";
+        String vResultado = (varNumberOne>varNumberTwo)?varNumberOne+" Es mayor.":varNumberTwo+" Es mayor.";
         System.out.println(vResultado);
     }
     public static void siEsPositivo(){
@@ -102,7 +101,7 @@ public class clsTaller {
 
         Random random = new Random();
         int varNumero = random.nextInt(100)+1;
-        int varNumUsuario = 0;
+        int varNumUsuario;
 
         while(true){
             System.out.println("Digite el numero: ");
@@ -186,6 +185,7 @@ public class clsTaller {
     public static void redondearDecimal(){
         /*13.Pide al usuario un número decimal y muestra su valor redondeado a un
         número específico de decimales*/
+
         System.out.println("Digite el numero: ");
         double varNumUsuario = varScanner.nextDouble();
         System.out.println("Digite la cantidad a redondear: ");
@@ -221,7 +221,7 @@ public class clsTaller {
         System.out.println("Digite el numero: ");
         int varNumUsuario = varScanner.nextInt();
         StringBuilder varSB = new StringBuilder();
-        varSB.append(String.valueOf(varNumUsuario)).reverse();
+        varSB.append(varNumUsuario).reverse();
         String varResultado = (String.valueOf(varNumUsuario).contentEquals(varSB))?"El numero es capicua.":"El numero no es capicua.";
         System.out.println(varResultado);
 
@@ -292,12 +292,11 @@ public class clsTaller {
         mayúsculas y minúsculas
         */
         System.out.println("Digite su nombre: ");
-        String varNombre = varScanner.next();
+        String varNombre = varScanner.nextLine();
         System.out.println("Su nombre en minusculas es: " +varNombre.toLowerCase()+ " y en mayusculas es: "+varNombre.toUpperCase());
 
 
     }
-
     public static void reverseCadena(){
         /*20. Realiza un programa que solicite al usuario una cadena y luego invierta su
         orden*/
@@ -310,8 +309,39 @@ public class clsTaller {
     public static void countCadena(){
         /*21. Pide al usuario una cadena y muestra cuántas veces aparece una letra
           específica en ella*/
+        System.out.println("Digite su palabra/frase : ");
+        String varFrase = varScanner.nextLine().toLowerCase();
+        System.out.println(varFrase);
+
+        HashMap<Character,Integer> varHashContador = new HashMap<>();
+
+        for (char vLetra : varFrase.toCharArray()) {
+            if (varHashContador.containsKey(vLetra)) {
+                varHashContador.put(vLetra, varHashContador.get(vLetra) + 1);
+            } else {
+                varHashContador.put(vLetra, 1);
+            }
+        }
+
+        for (char vLetra: varHashContador.keySet()){
+            int varContador = varHashContador.get(vLetra);
+            System.out.println("La letra: [" + vLetra + "] se repite: " + varContador);
+        }
+
+
+
+
 
 
     }
-
+    public static void siEsPalindromo(){
+        /*22. Escribe un programa que solicite al usuario una frase y verifique si es un
+              palíndromo (se lee igual de izquierda a derecha que de derecha a izquierda)*/
+        System.out.println("Digite el frase: ");
+        String varFraseUsuario = varScanner.nextLine().toLowerCase().replaceAll("\\s+", "");
+        StringBuilder varSB = new StringBuilder();
+        varSB.append(varFraseUsuario).reverse();
+        String varResultado = (varFraseUsuario.contentEquals(varSB))?"La frase es palindroma.":"La frase no es palindroma.";
+        System.out.println(varResultado);
+    }
 }
