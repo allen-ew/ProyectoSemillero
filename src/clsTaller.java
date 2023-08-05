@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class clsTaller {
 
@@ -337,11 +334,184 @@ public class clsTaller {
     public static void siEsPalindromo(){
         /*22. Escribe un programa que solicite al usuario una frase y verifique si es un
               palíndromo (se lee igual de izquierda a derecha que de derecha a izquierda)*/
-        System.out.println("Digite el frase: ");
+        System.out.println("Digite la frase: ");
         String varFraseUsuario = varScanner.nextLine().toLowerCase().replaceAll("\\s+", "");
         StringBuilder varSB = new StringBuilder();
         varSB.append(varFraseUsuario).reverse();
         String varResultado = (varFraseUsuario.contentEquals(varSB))?"La frase es palindroma.":"La frase no es palindroma.";
         System.out.println(varResultado);
     }
+    public static void countPalabras(){
+
+        /*23. Crea un programa que pida al usuario una oración y muestre cuántas
+          palabras contiene*/
+        System.out.println("Digite la frase: ");
+        String varFrase = varScanner.nextLine();
+        ArrayList<String> varPalabras = new ArrayList<>(List.of(varFrase.split("\\s+")));
+        int varResultado = varPalabras.size();
+        System.out.println("El numero de palabras de la frase ["+varFrase+ "] es: " + varResultado);
+    }
+    public static void replaceChar(){
+        /*24. Realiza un programa que solicite al usuario una cadena y reemplace todas
+        las apariciones de una letra específica por otra*/
+
+        System.out.print("Digite una frase: ");
+        String varFrase = varScanner.nextLine();
+
+        System.out.print("Digite la letra que deseas reemplazar: ");
+        char varLetraAnterior = varScanner.nextLine().charAt(0);
+
+        System.out.print("Digite la nueva letra: ");
+        char varLetraNueva = varScanner.nextLine().charAt(0);
+
+        String varResultado = varFrase.replace(varLetraAnterior, varLetraNueva);
+
+        System.out.println("La frase original es: " + varFrase);
+        System.out.println("La frase con el caracter [ "+varLetraNueva+" ] es: " + varResultado);
+
+    }
+    public static void fraseSeparada(){
+        /*25. Pide al usuario una frase y muestra cada palabra por separado*/
+
+        System.out.print("Digite una frase: ");
+        String varFrase = varScanner.nextLine();
+        ArrayList<String> varPalabras = new ArrayList<>(List.of(varFrase.split("\\s+")));
+        for (int i = 0; i<varPalabras.size();i++){
+            int varNumber = i + 1;
+            System.out.println("La palabra numero: [" +varNumber+"] es: " + varPalabras.get(i));
+        }
+    }
+    public static void countChar(){
+
+        /*26. Escribe un programa que pida al usuario una cadena y muestre cuántos
+        caracteres tiene sin contar los espacios en blanco*/
+
+        System.out.print("Digite una frase: ");
+        String varFrase = varScanner.nextLine();
+        int varNumero = varFrase.replaceAll("\\s+", "").length();
+        System.out.println("El numero de caracteres son: " + varNumero);
+    }
+    public static void fraseOrdenada(){
+        /*27. Crea un programa que solicite al usuario una frase y luego muestre las
+              palabras ordenadas alfabéticamente
+        */
+
+        System.out.print("Digite una frase: ");
+        String varFrase = varScanner.nextLine();
+        ArrayList<String> varPalabras = new ArrayList<>(List.of(varFrase.split("\\s+")));
+        System.out.println("La frase en su orden original es: " + varPalabras);
+        Collections.sort(varPalabras);
+        System.out.println("La frase en su orden alfabetico es: " + varPalabras);
+    }
+    public static void sumaArreglo(ArrayList<Integer> prmArray){
+        /* 28. Suma de elementos: Escribe un programa que calcule la suma de todos los
+            elementos en un arreglo de enteros.
+        */
+        int varResultado = prmArray.stream().mapToInt(i->i).sum();
+        System.out.println("La suma de los numeros " + prmArray + " es: " + varResultado);
+    }
+    public static void numeroMayor(ArrayList<Integer> prmArray){
+        /*29. Encontrar el número más grande: Crea un programa que encuentre el número
+                más grande en un arreglo de enteros.
+        */
+
+        Collections.sort(prmArray);
+        int varResultado = prmArray.get(prmArray.size()-1);
+        System.out.println("El numero mayor del arreglo es: " + varResultado);
+
+    }
+    public static <T> void eliminaDuplicados (ArrayList<T> prmArray){
+        /*30. Eliminar duplicados: Diseña un programa que elimine los elementos
+          duplicados de un arreglo.
+         */
+
+        System.out.println("El array original es: " + prmArray);
+        Set<T> varSet = new HashSet<>(prmArray);
+        System.out.println("El array sin elementos duplicados es: " + varSet);
+    }
+    public static void ordenarEnteros(ArrayList<Integer> prmArray){
+        /*31. Ordenar elementos: Implementa un algoritmo de ordenamiento (por ejemplo,
+             el algoritmo de burbuja o el de selección) para ordenar un arreglo de enteros
+             de manera ascendente.
+            */
+
+        System.out.println("El arreglo original es : " + prmArray);
+        Collections.sort(prmArray);
+        System.out.println("El arreglo ordenado de manera ascendente es: " + prmArray);
+    }
+    public static void buscarElementoEspecifico(ArrayList<Integer> prmArray,int prmNumero){
+        /*32. Buscar un elemento: Escribe un programa que busque un número específico
+              en un arreglo y muestre su índice (o un mensaje si no se encuentra).
+        */
+        boolean varBandera = true;
+
+        for(int i = 0; i<prmArray.size(); i++){
+            if(prmArray.get(i) == prmNumero){
+                System.out.println("El indice del numero buscado es: " + i);
+                varBandera = false;
+                break;
+            }
+        }
+        if(varBandera){
+            System.out.println("El elemento que busca no se encuentra en el arreglo!.");
+        }
+    }
+    public static void frecuenciaElementos(ArrayList<Integer> prmArray){
+        /*33. Frecuencia de elementos: Escribe un programa que cuente la frecuencia de
+              cada elemento en un arreglo.*/
+
+        Map<Integer, Integer> varFrequencyMap = new HashMap<>();
+
+        for (int varNum : prmArray) {
+            if (varFrequencyMap.containsKey(varNum)) {
+                int frequency = varFrequencyMap.get(varNum);
+                varFrequencyMap.put(varNum, frequency + 1);
+            } else {
+                varFrequencyMap.put(varNum, 1);
+            }
+        }
+        for (Map.Entry<Integer, Integer> entry : varFrequencyMap.entrySet()) {
+            int vNumero = entry.getKey();
+            int vFrecuencia = entry.getValue();
+            System.out.println("El numero: ["+vNumero+"] su frecuencia es : " + vFrecuencia);
+        }
+
+    }
+    public static void rotacionElementos(ArrayList<Integer> prmArray, int prmPosicion){
+
+        /*34. Rotación de elementos: Implementa un programa que rote los elementos de
+              un arreglo hacia la izquierda o la derecha una cierta cantidad de posiciones.*/
+
+        ArrayList<Integer> varArrayClone = new ArrayList<>(prmArray);
+
+        System.out.println("El arreglo original: " + varArrayClone);
+
+        Collections.rotate(prmArray,prmPosicion);
+        System.out.println("El arreglo ha rotado a la derecha: " + prmArray);
+
+        Collections.rotate(varArrayClone,-prmPosicion);
+        System.out.println("El arreglo ha rotado a la izquierda: " + varArrayClone);
+
+    }
+    public static void tablaMultiplicar(){
+        /*Tabla de multiplicar: Crea un programa que imprima las tablas de multiplicar
+          del 1 al 10. Usa para esto una matriz*/
+
+        int[][] varMatriz = new int[11][11];
+
+        for (int i = 1; i < varMatriz.length; i++) {
+            for (int j = 0; j < varMatriz[i].length; j++) {
+                varMatriz[i][j]= i*j;
+            }
+        }
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("Tabla del " + i + ":");
+            for (int j = 0; j <= 10; j++) {
+                System.out.println(i + " x " + j + " = " + varMatriz[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
 }
