@@ -482,9 +482,11 @@ public class clsTaller {
 
         System.out.println("El arreglo original: " + varArrayClone);
 
+        // El metodo rota los elementos en dirección de las manecillas del reloj.
         Collections.rotate(prmArray,prmPosicion);
         System.out.println("El arreglo ha rotado a la derecha: " + prmArray);
 
+        // Aquí se debe pasar la posicion en negativo, para que rote los elementos en la otra dirección.
         Collections.rotate(varArrayClone,-prmPosicion);
         System.out.println("El arreglo ha rotado a la izquierda: " + varArrayClone);
 
