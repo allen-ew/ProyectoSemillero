@@ -7,6 +7,11 @@ public class Main {
 
 
     public static void main(String[] args) {
+
+
+        //Para probar los puntos simplemente hay que quitar el comentario en la linea de la funcion:) //
+
+
         //Punto 1:
         //clsTaller.operacionesBasicas();
 
