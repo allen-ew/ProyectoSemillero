@@ -116,18 +116,6 @@ public class Main {
 
         //Punto 35:
         //clsTaller.tablaMultiplicar();
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
 }

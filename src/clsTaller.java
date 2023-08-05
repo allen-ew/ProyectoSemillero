@@ -2,6 +2,7 @@ import java.util.*;
 
 public class clsTaller {
 
+    //Creamos una variable Scanner de manera "global", para poder usarla en todas las funciones que lo soliciten.
     public static Scanner varScanner = new Scanner(System.in);
 
 
@@ -324,11 +325,6 @@ public class clsTaller {
             int varContador = varHashContador.get(vLetra);
             System.out.println("La letra: [" + vLetra + "] se repite: " + varContador);
         }
-
-
-
-
-
 
     }
     public static void siEsPalindromo(){
